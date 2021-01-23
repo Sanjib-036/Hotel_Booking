@@ -29,3 +29,7 @@ signInbtn.addEventListener('click', () =>
 //     },
 //   });
 // });
+$(document).on('click','.close',function(){
+  $('.alert').removeClass(".show");
+  $('.alert').addClass(".hide");
+})

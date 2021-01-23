@@ -1,0 +1,54 @@
+ <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">TravIngo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto justify-content-between">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+      <% if(loggedIn){ %> 
+
+      <li class="nav-item">
+        <a class="nav-link" href="/hotels/wishlist"><i class="fa fa-list-ul" aria-hidden="true"></i> Wishlist</i> <span class="badge badge-light"><%= totalQty %></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/dashboard"><i class="fa fa-check-square-o" aria-hidden="true"></i> Travel History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fa fa-rss" aria-hidden="true"></i> About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">User Name</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/users/dashboard"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a>
+          <a class="dropdown-item" href="/users/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+      </li>
+
+      <% }  else { %>
+
+         <li class="nav-item">
+        <a class="nav-link" href="/hotels/wishlist"><i class="fa fa-list-ul" aria-hidden="true"></i><span class="badge badge-light"><%= totalQty %></span> Wishlist</i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fa fa-rss" aria-hidden="true"></i> About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/users/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+          <a class="dropdown-item" href="/users/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Create Account</a>
+      </li>
+
+       <%}%>
+
+
+    </ul>
+
+  </div>
+</nav>

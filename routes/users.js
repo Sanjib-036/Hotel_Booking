@@ -5,16 +5,38 @@ const passport = require('passport');
 
 //User Model
 
-const User = require('../models/User.model')
+const User = require('../models/User.model');
+const { ensureAuthenticated, notLoggedIn } = require('../config/auth');
+
+
+//Users Dashboard/Profile
+router.get('/dashboard', ensureAuthenticated, (req, res)=> 
+        res.render('dashboard',{
+            name: req.user.name,
+            email: req.user.email,
+            
+}));
+
+//Logout Handle
+router.get('/logout', ensureAuthenticated, (req,res)=>{
+    req.logout();
+    req.flash('success_msg','You are logged out');
+    res.redirect('/');
+});
+
+//UnAuthenticated
+router.use('/', notLoggedIn, (res,req,next)=>{
+    next();
+});
 
 //Login Page
-router.get('/login', (req, res)=> res.render('login'));
+router.get('/login', (req, res)=> res.render('login', {layout: false}));
 
 //Register Page
-router.get('/register', (req, res)=> res.render('register'));
+router.get('/register', (req, res)=> res.render('register', {layout:false}));
 
 
-//Register Handle
+//Register/ Sign Up Handle
 router.post('/register', (req,res)=>{
    const {name, email, password, password2} = req.body;
 
@@ -39,7 +61,8 @@ router.post('/register', (req,res)=>{
            name,
            email,
            password,
-           password2
+           password2,
+           layout: false
        });
 
    }
@@ -55,7 +78,8 @@ router.post('/register', (req,res)=>{
                     name,
                     email,
                     password,
-                    password2
+                    password2,
+                    layout:false
                  });
             } else {
                 //Create new user 
@@ -87,8 +111,9 @@ router.post('/register', (req,res)=>{
 
 
 //Login Handle
-
 router.post('/login',(req,res,next)=>{
+    var body = req.body;
+    console.log(body);
     passport.authenticate('local',{
         successRedirect: '/home',
         failureRedirect: '/users/login',
@@ -97,12 +122,8 @@ router.post('/login',(req,res,next)=>{
 
 });
 
-//Logout Handle
 
-router.get('/logout', (req,res)=>{
-    req.logout();
-    req.flash('success_msg','You are logged out');
-    res.redirect('/users/login');
-})
+
+
 
 module.exports = router;

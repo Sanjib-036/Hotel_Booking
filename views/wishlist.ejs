@@ -1,0 +1,36 @@
+<h2>Your List</h2>
+<% if(totalQty){ %>
+<div class="row">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Hotel Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Price</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Available</th>
+      <th scope="col">Booking Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% .forEach((hotel)=>{%>
+      <tr class="table-info">
+      <td>  <img src="<%= hotel.hotel.imagePath %>" alt="" style="min-height: 50px; max-width: 50px;"> </td>
+      <td>  <a href="/hotels/hotel/<%- hotel.hotel.id %>"></a> <%= hotel.hotel.title %> </td>
+      <td>  <%= hotel.hotel.location %> </td>
+      <td>  <%= hotel.hotel.price %> </td>
+      <td>  <%= hotel.hotel.availability %> </td>
+      <td>  <a href="/hotels/booking/<%- hotel.hotel.id %>" type="button" class="btn btn-primary rounded-pill">
+                    <span class="material-icons"> book_online</span>  Book Now</a> </td>   
+    </tr>
+    <%})%>
+    </tbody>
+</table>
+</div>
+
+<%} else {%>
+<div class="row">
+  <h2>No hotels added to your List Yet!</h2>
+</div>
+<%}%>

@@ -1,0 +1,64 @@
+<% let row = 0 %>
+<% if(row == 0 || row == 3) {%>
+  <div class="row">
+   <% for(let i =0; i< hotels.length; i++){ %>
+    <%- include('partials/bookingForm', {item: hotels[i]}) %>
+         <div class="col-sm-4">
+          <div class="card mb-3">
+            <h3 class="card-header"><%= hotels[i].title %></h3>
+            <div class="card-body d-flex justify-content-between">
+              <h5 class="card-title" id="location"><%= hotels[i].location %></h5>
+              <span class="badge badge-danger"><h6><%= hotels[i].rating %></h6></span>
+            </div>
+            <img
+              src="<%= hotels[i].imagePath %>"
+              class="d-block user-select-none"
+              width="100%"
+              height="200"
+              aria-label="Placeholder: Image cap"
+              focusable="false"
+              role="img"
+              preserveAspectRatio="xMidYMid slice"
+              viewBox="0 0 318 180"
+              style="font-size: 1.125rem; text-anchor: middle;"
+            >
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
+          
+            <div class="card-body" >
+              <p class="card-text" id="price">
+                BDT <%= hotels[i].price %> Per Night
+              </p>
+            </div>
+             <div class="card-body d-flex justify-content-between">
+              <p><%=  hotels[i].description %></p> 
+              <a href="#" class="btn btn-outline-warning"> <i class="fas fa-bookmark"> Wishlist</i> </a>
+             </div>
+
+            <div class="card-body d-flex justify-content-between">
+              <p class="card-text" id="item-id" style="display: none;"> <%- hotels[i].id %></p>
+              <a class="btn btn-info">View More</a>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Book Now</button>
+            </div>
+          </div> 
+        </div>
+        
+        <% row++ %>
+   <% } %>
+      </div> 
+    <% } %>
+       
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+  

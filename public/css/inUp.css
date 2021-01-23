@@ -214,3 +214,63 @@ button.ghost{
     transform: translateX(20%);
 }
 
+/* Alert Style  */
+.alert{
+    background: #ffdb9b;
+    padding: 1px 5px;
+    min-width: 4rem;
+    position: relative;
+    right: auto;
+    top: auto;
+    border-radius: 4px;
+    border-left: 1em solid #ffa502;
+    overflow: hidden;
+    cursor: pointer;
+}
+.fa-exclamation-circle{
+    position: relative;
+    left:0;
+    top: 15%;
+    transform: translateY(-50%);
+    color: #ce8500;
+    font-size: .8rem;
+}
+
+.msg{
+    padding: 0 10px;
+    font-size: .9rem;
+    color: #ce8500;;
+}
+.close{
+    position: relative;
+    right: 0;
+    background: #ffd080;
+    padding: 6px 4px;
+    transform: translateY(-50%);
+    color: #ce8500;
+    font-size: .9rem;
+}
+.close:hover{
+    background: #ffc766;
+}
+.alert.show{
+    animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide{
+    0%{
+        transform: translatex(100%);
+    }
+     40%{
+        transform: translateX(-10%);
+    }
+     80%{
+        transform: translatex(0%);
+    }
+     100%{
+        transform: translatex(-10%);
+    }
+}
+
+.alert.hide{
+   display: none;
+}

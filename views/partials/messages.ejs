@@ -1,42 +1,48 @@
-<% if(typeof errors != 'undefined'){ %>
-    <% errors.forEach((error)=>{ %>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <%= error.message %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<!-- <% if(typeof errors != 'undefined'){ %> 
+    <% errors.forEach((error)=>{ %> 
+     <div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Warning!</h4>
+  <p class="mb-0"><%= error.message %></p>
 </div>
-        
-
   <%  }); %>
-<%}%>
+<%}%> -->
 
-<% if(success_msg != '') { %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <%= success_msg %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+
+<% if(success_msg != '') { %> 
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p><%= success_msg %> </p>
 </div>
-
 <%}%>
 
 <% if(error_msg != '') { %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <%= error_msg %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div class="alert show">
+  <span class="fas fa-exclamation-cirlce"></span>
+  <span class="msg"><%= error_msg %></span>
+  <span class="cls-btn">
+    <span class="fas fa-times"></span>
+  </span>
 </div>
-
+<%}%>
+<% if(error != '') { %>
+<div class="alert show">
+  <span class="fas fa-exclamation-cirlce"></span>
+  <span class="msg"><%= error %></span>
+  <span class="cls-btn">
+    <span class="fas fa-times"></span>
+  </span>
+</div>
 <%}%>
 
-<% if(error != '') { %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <%= error %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 
+<% if(typeof errors != 'undefined'){ %> 
+  <% errors.forEach((error)=>{ %> 
+    <div class="alert"> 
+ <span class="msg">
+   <i class="fa fa-exclamation-circle"></i> <%= error.message %> 
+ </span>
+ <span class="close"><i class="fa fa-times"></i></span>
+</div>
+ <%  }); %>
 <%}%>

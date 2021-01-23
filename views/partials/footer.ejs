@@ -1,0 +1,79 @@
+<!-- Footer -->
+<footer class="bg-dark text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-light">TravIngo</h5>
+
+        <p>
+          TravIngo is an online hotel booking system where users can find their prefered hotel at their prefered cost with ease.
+          List of hotels all across the country along with searching and sorting option. Booking has been made easier.
+        </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Important Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          
+          <li>
+            <a href="#!" class="text-light">Home</a>
+          </li>
+
+          <% if(loggedIn){ %> 
+            <li>
+            <a href="/users/dashboard" class="text-light">Profile</a>
+          </li>
+
+            
+
+          <% }  else { %>
+          <li>
+            <a href="#!" class="text-light">Login</a>
+          </li>
+          <li>
+            <a href="#!" class="text-light">Create Account</a>
+          </li>
+          <%}%>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Contact US</h5>
+        <br>
+        <ul class="list-unstyled d-flex justify-content-around">
+          <li>
+            <a href="#!" class="text-light">Rose IT</a> &nbsp;
+          </li>
+          <li>
+            <a href="#!" class="text-light">Facebook</a>&nbsp;
+          </li>
+          <li>
+            <a href="#!" class="text-light">Google</a>&nbsp;
+          </li>
+          <li>
+            <a href="#!" class="text-light">LinkedIn</a>&nbsp;
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-light" href="#">Rose IT Limited</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

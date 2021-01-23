@@ -1,3 +1,102 @@
-.main {
-  margin: 1.7em;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
+
+body{
+    background-color: #b8faea;
 }
+
+.navbar-brand{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+.nav-item{
+    font-family: 'Raleway', sans-serif;
+    font-size: medium;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: #BA68C8;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+#destination{
+    border: 3px solid #682773;
+    font-size: .16 rem;
+    font-weight: bold;
+    text-align: center;
+    
+}
+#sortBy{
+    border: 3px solid #682773;
+    font-size: .16 rem;
+    font-weight: bold;
+    text-align: center;
+}
+.card{
+    border: none;
+    
+}
+.card-header{
+    background-color: rgba(8, 100, 112, 0.9);
+    color: black;
+}
+.card-body{
+    background-color: rgba(227, 181, 236, 0.9);
+    font-family: 'Raleway', sans-serif;
+    columns: black;
+    font-weight: 500;
+}
+
+.badge{
+    margin-top: auto;
+    text-align: center;
+    font-size: large;
+}
+
+.jumbotron{
+    background-color: #b8faea;
+}
+footer{
+    color: white;
+}
+.text-light:hover{
+    text-decoration: none;
+}
+
