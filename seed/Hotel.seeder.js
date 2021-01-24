@@ -2,7 +2,7 @@ var Hotel = require("../models/hotel.model");
 
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/project", {
+mongoose.connect("mongodb://localhost:27017/travIngo", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

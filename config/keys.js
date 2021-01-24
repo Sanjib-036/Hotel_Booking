@@ -1,3 +1,3 @@
 module.exports = {
-    MongoURI: 'mongodb://localhost:27017/project'
+    MongoURI: 'mongodb://localhost:27017/travIngo'
 }

@@ -6,6 +6,7 @@ const passport = require('passport');
 //User Model
 
 const User = require('../models/User.model');
+const Hotel = require('../models/Hotel.model');
 const { ensureAuthenticated, notLoggedIn } = require('../config/auth');
 
 
@@ -16,6 +17,37 @@ router.get('/dashboard', ensureAuthenticated, (req, res)=>
             email: req.user.email,
             
 }));
+//Authenticated User home
+router.get('/home', ensureAuthenticated, (req,res,next)=>{
+    Hotel.find({}, (err, data) => {
+    var hotelChunks = [];
+    var chunkSize = 3;
+    for(let i = 0; i<data.length ; i+=chunkSize){
+      hotelChunks.push(data.slice(i, i+chunkSize));
+    }
+    res.render('homePage', {
+      hotels: hotelChunks,
+      name: req.user.name,
+      data: data
+    });
+  });
+});
+
+//Authenticated User Booking Form
+//Booking Form Unauthenticated
+router.get('/bookingForm/:id', ensureAuthenticated, (req,res,next)=>{
+    var hotelId = req.params.id;
+    console.log('auth', hotelId);
+    Hotel.findById(hotelId, (err, hotel)=>{
+        if(err){
+            res.redirect('/users/home');
+        }
+        res.render('bookingForm',{
+            hotel : hotel,
+            name: req.user.name
+        });
+    })
+})
 
 //Logout Handle
 router.get('/logout', ensureAuthenticated, (req,res)=>{
@@ -115,7 +147,7 @@ router.post('/login',(req,res,next)=>{
     var body = req.body;
     console.log(body);
     passport.authenticate('local',{
-        successRedirect: '/home',
+        successRedirect: '/users/home',
         failureRedirect: '/users/login',
         failureFlash: true
     }) (req,res,next);

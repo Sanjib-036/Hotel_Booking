@@ -11,7 +11,8 @@ module.exports = {
             return next();
         }
         req.flash('error_msg', 'Please Log In');
-        res.redirect('/home');
+        res.redirect('/home',{
+        });
     }
 
 }
