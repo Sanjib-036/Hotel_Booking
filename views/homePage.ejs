@@ -80,7 +80,11 @@
               <a href="/hotels/addList/<%- item.id %>" class="btn btn-outline-warning rounded-sm rounded-pill"> <i class="fas fa-bookmark"> Wishlist</i> </a>
             </div>
              <div class="card-body description">
-              <p><%=  item.description %></p> 
+               <ul>
+                 <% for(let i=0; i<item.description.length; i++){%>
+                   <li class="text-success"> <strong><%=  item.description[i] %></strong> </li>
+               <%}%>
+              </ul>
              </div>
 
             <div class="card-body d-flex justify-content-between">

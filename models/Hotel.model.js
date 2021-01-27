@@ -13,10 +13,7 @@ var HotelSchema = new mongoose.Schema({
     type: String,
     required: [true, "Location required"],
   },
-  description: {
-    type: String,
-    required: [true, "Description required"],
-  },
+  description: [String],
   rating: {
     type: Number,
     required: [true, "Rating required"],
@@ -30,6 +27,10 @@ var HotelSchema = new mongoose.Schema({
     default: true,
     required: [true, "Availability required"],
   },
+  availableRooms:{
+    type: Number,
+    required:[true]
+  }
 });
 
 var Hotel = mongoose.model("Hotel", HotelSchema);
